@@ -8,28 +8,28 @@ import javax.persistence.*;
 })
 
 public class Klient {
-    private Long idKlient;
+    private Long id_klient;
     private String imie;
     private String nazwisko;
-    
+
 	public Klient(){}
-	
+
 	public Klient(String imie, String nazwisko){
 		this.imie = imie;
 		this.nazwisko = nazwisko;
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getidKlient() {
-        return idKlient;
+    public Long getId_klient() {
+        return id_klient;
     }
     public void setId_klient(Long id_klient) {
-        this.idKlient = id_klient;
+        this.id_klient = id_klient;
     }
 
     public String getImie() {

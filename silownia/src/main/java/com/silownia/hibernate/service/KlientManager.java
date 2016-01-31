@@ -12,6 +12,26 @@ import org.springframework.transaction.annotation.Transactional;
 public class KlientManager implements KlientDAO{
 	@Autowired
 	private SessionFactory session;
-	
+
+
+	public SessionFactory getSessionFactory(){
+		return session;
+	}
+	public void setSessionFactory(SessionFactory session){
+		this.session = session;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
