@@ -29,7 +29,7 @@ public class Klient {
         return idKlient;
     }
     public void setId_klient(Long id_klient) {
-        this.idKlient = idKlient;
+        this.idKlient = id_klient;
     }
 
     public String getImie() {

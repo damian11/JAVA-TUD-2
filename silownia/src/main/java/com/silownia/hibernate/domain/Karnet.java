@@ -18,7 +18,7 @@ public class Karnet {
     
 	public Karnet(){}
 	
-	public Bilet(String rodzaj, String opis, double cena){
+	public Karnet(String rodzaj, String opis, double cena){
 		this.rodzaj = rodzaj;
 		this.opis = opis;
 		this.cena = cena;
