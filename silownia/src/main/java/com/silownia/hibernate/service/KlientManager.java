@@ -43,7 +43,7 @@ public class KlientManager implements KlientDAO{
 
 		@Override
 		public void dodajKlient(Klient klient) {
-			klient.setidKlient(null);
+			klient.setId_klient(null);
 			session.getCurrentSession().persist(klient);
 		}
 
