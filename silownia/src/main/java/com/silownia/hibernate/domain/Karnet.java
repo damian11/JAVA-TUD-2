@@ -6,23 +6,23 @@ import java.util.List;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Karnet.pobierzKarnety", query = "Select k from Karnet k")
+	@NamedQuery(name = "Karnet.pobierzKarnety", query = "Select ka from Karnet ka")
 })
 
 public class Karnet {
     private Long id_karnet;
     private String rodzaj;
     private String opis;
-    private double cena;
+;
 
     private List<Klient> klienci = new ArrayList<Klient>();
 
 	public Karnet(){}
 
-	public Karnet(String rodzaj, String opis, double cena){
+	public Karnet(String rodzaj, String opis){
 		this.rodzaj = rodzaj;
 		this.opis = opis;
-		this.cena = cena;
+		
 	}
 
     @Id
@@ -46,13 +46,6 @@ public class Karnet {
     }
     public void setRodzaj(String rodzaj){
         this.rodzaj = rodzaj;
-    }
-
-    public double getCena(){
-        return cena;
-    }
-    public void setCena(double cena){
-        this.cena = cena;
     }
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)

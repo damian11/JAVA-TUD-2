@@ -1,15 +1,17 @@
-package com.silownia.hibernate.service;
-import com.silownia.hibernate.domain.Klient;
-import com.silownia.hibernate.domain.Karnet;
+package com.silownia.hibernate.model.service;
+import com.silownia.hibernate.model.domain.Klient;
+import com.silownia.hibernate.model.domain.Karnet;
 import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+
+
 @Component
 @Transactional
-public class KlientManager implements KlientDAO{
+public class KlientManagerImpl implements KlientManager{
 	@Autowired
 	private SessionFactory session;
 
@@ -27,13 +29,19 @@ public class KlientManager implements KlientDAO{
 	@SuppressWarnings("unchecked")
 		@Override
 		public List<Klient> pobierzKlientow() {
-			return session.getCurrentSession().getNamedQuery("Klient.pobierzKlientow").list();
+        return session.getCurrentSession().getNamedQuery("Klient.pobierzKlientow").list();
 		}
 
 		@Override
 		public Klient pobierzKlientPoId(Klient klient) {
-			return (Klient) session.getCurrentSession().get(Klient.class, klient.getId_klient());
+return (Klient) session.getCurrentSession().get(Klient.class, klient.getId_klient());
 		}
+    
+    @Override
+	public List<Klient> pobierzKlientPoKarnet(Karnet karnet) {
+		Karnet ka = (Karnet) session.getCurrentSession().get(Karnet.class, karnet.getId_karnet());
+		return ka.getKlienci();
+	}
 
 		@SuppressWarnings("unchecked")
 		@Override
@@ -50,7 +58,7 @@ public class KlientManager implements KlientDAO{
 		@Override
 		public void dodajKlientDoKarnetu(Klient klient, Karnet karnet) {
 			Karnet ka = (Karnet) session.getCurrentSession().get(Karnet.class, karnet.getId_karnet());
-			ka.getKlients().add(klient);
+			ka.getKlienci().add(klient);
 		}
 
 		@Override

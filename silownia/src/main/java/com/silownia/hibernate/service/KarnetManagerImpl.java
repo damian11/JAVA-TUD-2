@@ -1,4 +1,4 @@
-package com.silownia.hibernate.service;
+package com.silownia.hibernate.model.service;
 import com.silownia.hibernate.domain.Karnet;
 import java.util.List;
 import org.hibernate.SessionFactory;
@@ -6,11 +6,11 @@ import org.springframework.stereotype.Component;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.silownia.hibernate.model.domain.Klient;
+
 import com.silownia.hibernate.model.domain.Karnet;
 
 @Transactional
-public class KarnetManager implements KarnetDAO{
+public class KarnetManagerImpl implements KarnetManager{
 	@Autowired
 	private SessionFactory session;
 
