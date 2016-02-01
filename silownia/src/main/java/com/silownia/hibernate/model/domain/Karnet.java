@@ -1,14 +1,13 @@
-package com.silownia.hibernate.model.domain;
-
+package pl.karnet.domain;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Karnet.pobierzKarnety", query = "Select k from Karnet k")
+	@NamedQuery(name = "karnet.pobierzKarnety", query = "Select k from Karnet k")
 })
-
+	
 public class Karnet {
     private Long id_karnet;
     private String rodzaj;
@@ -16,15 +15,15 @@ public class Karnet {
     private double cena;
 
     private List<Klient> klienci = new ArrayList<Klient>();
-
+    
 	public Karnet(){}
-
+	
 	public Karnet(String rodzaj, String opis, double cena){
 		this.rodzaj = rodzaj;
 		this.opis = opis;
 		this.cena = cena;
 	}
-
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId_karnet(){

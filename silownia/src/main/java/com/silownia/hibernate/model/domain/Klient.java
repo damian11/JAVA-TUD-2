@@ -1,15 +1,13 @@
-package com.silownia.hibernate.model.domain;
+package com.silownia.hibernate.domain;
 import javax.persistence.*;
 
 @Entity
 @NamedQueries({
-	@NamedQuery(name = "Klient.pobierzKlientow", query = "Select k from Klient k"),
-	@NamedQuery(name = "Klient.pobierzKlientPoImie", query = "Select k from Klient k where k.imie= :imie")
+	@NamedQuery(name = "klient.pobierzKlientow", query = "Select k from Klient k"),
+	@NamedQuery(name = "klient.pobierzKlientPoImie", query = "Select k from Klient k where k.imie= :imie")
 })
 
-public class Przedstawienie implements java.io.Serializable{
-private static final long serialVersionUID = 1L;
-
+public class Klient {
     private Long id_klient;
     private String imie;
     private String nazwisko;
@@ -33,11 +31,6 @@ private static final long serialVersionUID = 1L;
     public void setId_klient(Long id_klient) {
         this.id_klient = id_klient;
     }
-
-
-@Column(nullable = false)
-public String getImie() {
-	return imie;
 
     public String getImie() {
         return imie;
